@@ -1,0 +1,30 @@
+
+
+.box {
+    width: 200px;
+    height: 200px;
+    position: absolute; 
+    margin: 10px;
+}
+
+.red_box {
+    background-color: red;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+
+.yellow_box {
+    background-color: yellow;
+    top: 200px; 
+    left: 200px;
+    margin: 10px;
+}
+
+.blue_box {
+    background-color: blue;
+    top: 400px; 
+    left: 400px;
+    margin: 10px; 
+}
+

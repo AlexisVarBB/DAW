@@ -1,0 +1,24 @@
+
+body {
+    display: flex;
+    flex-direction: row; 
+}
+
+.box {
+    width: 200px;
+    height: 200px; 
+    display: flex;
+    box-sizing: border-box;
+}
+
+.blue_box {
+    background-color: blue;
+}
+
+.yellow_box {
+    background-color: yellow;
+}
+
+.red_box {
+    background-color: red;
+}

@@ -1,0 +1,191 @@
+body {
+  font-family: 'Merriweather', serif;
+  background-color: #F6F6FE;
+  color: #070439;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 3.5em;
+  color: #3065F8;
+}
+
+h2 {
+  font-size: 2.2em;
+  color: #3C9F8F;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: #585989;
+}
+
+a {
+  font-family: 'Raleway', sans-serif;
+  color: #3065F8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #3C9F8F;
+  text-decoration: underline;
+}
+
+.header, .footer {
+  background-color: #004d80;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+img{
+  width: 100px;
+  height: 100px;
+}
+
+.miami_img, .apatz_img, .mca_img, .mont_img, .culiacan_img{
+  width: 500px;
+  height: 350px;
+}
+.div1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f4f8;
+  border-bottom: 2px solid #007a99;
+}
+
+.profile_picture, .hero_img {
+  border-radius: 50%;
+}
+
+.profile_picture {
+  width: 180px;
+  height: 180px;
+}
+
+.hero_img {
+  width: 100px;
+}
+
+.profile_inf p, .skills_li li, .food_li li {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+
+.skills_li, .food_li, ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills_li li, .food_li li {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+}
+
+.food_li li {
+  background-color: #e0f0f7;
+}
+
+.div2, hr {
+  margin: 20px 0;
+  border: 0;
+  height: 2px;
+}
+
+table, .education_tb, .heroes_tb {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.flag {
+  margin-top: 10px;
+  width: 100px;
+}
+
+#Schedule {
+  border: 2px dotted #007a99;
+  background-color: #f0f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#Schedule form {
+  display: grid;
+  gap: 15px;
+}
+
+#Schedule input[type="date"],
+#Schedule input[type="time"],
+#Schedule input[type="text"],
+#Schedule select,
+#Schedule input[type="color"],
+#Schedule input[type="checkbox"] {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#Schedule input[type="date"],
+#Schedule input[type="time"],
+#Schedule input[type="text"] {
+  background-color: #eaf3f7;
+}
+
+#Schedule input[type="color"] {
+  padding: 0;
+}
+
+#Schedule input[type="submit"] {
+  background-color: #3065F8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#Schedule input[type="submit"]:hover {
+  background-color: #3C9F8F;
+}
+
+.mountain {
+  position: sticky;
+  top: 10;
+  width: 1500px; 
+  height: auto;
+  z-index: -1;
+}
+
+.cloud {
+  position: sticky;
+  top: 0;
+  width: 400px; 
+  height: auto;
+  z-index: 1;
+}

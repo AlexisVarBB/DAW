@@ -1,0 +1,183 @@
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.box {
+    box-sizing: border-box;
+    border: 10px solid black;
+}
+
+.white1 {
+    background-color: white;
+    width: 100px;
+    height: 300px;
+    margin: 10px;
+    top: 100px;
+    left: 10px;
+    position: absolute;
+}
+
+.white2 {
+    background-color: white;
+    width: 100px;
+    height: 130px;
+    margin: 10px;
+    top: 400px;
+    left: 10px;
+    position: absolute;
+}
+
+.white3 {
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    top: 530px;
+    left: 10px;
+    position: absolute;
+}
+
+.white4 {
+    background-color: white;
+    width: 350px;
+    height: 300px;
+    margin: 10px;
+    top: 100px;
+    left: 110px;
+    position: absolute;
+}
+
+.blue {
+    background-color: navy;
+    width: 350px;
+    height: 130px;
+    margin: 10px;
+    top: 400px;
+    left: 110px;
+    position: absolute;
+}
+
+.white5 {
+    background-color: white;
+    width: 350px;
+    height: 50px;
+    margin: 10px;
+    top: 530px;
+    left: 110px;
+    position: absolute;
+}
+
+.white6 {
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    top: 100px;
+    left: 460px;
+    position: absolute;
+}
+
+.white7 {
+    background-color: white;
+    width: 100px;
+    height: 250px;
+    margin: 10px;
+    top: 150px;
+    left: 460px;
+    position: absolute;
+}
+
+.white8 {
+    background-color: white;
+    width: 100px;
+    height: 130px;
+    margin: 10px;
+    top: 400px;
+    left: 460px;
+    position: absolute;
+}
+
+.white9 {
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    top: 530px;
+    left: 460px;
+    position: absolute;
+}
+
+.white10 {
+    background-color: white;
+    width: 350px;
+    height: 50px;
+    margin: 10px;
+    top: 100px;
+    left: 560px;
+    position: absolute;
+}
+
+.red {
+    background-color: red;
+    width: 350px;
+    height: 250px;
+    margin: 10px;
+    top: 150px;
+    left: 560px;
+    position: absolute;
+}
+
+.white11 {
+    background-color: white;
+    width: 350px;
+    height: 180px;
+    margin: 10px;
+    top: 400px;
+    left: 560px;
+    position: absolute;
+}
+
+
+.yellow {
+    background-color: yellow;
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+    top: 100px;
+    left: 910px;
+    position: absolute;
+}
+
+.white12{
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    top: 150px;
+    left: 910px;
+    position: absolute;
+}
+
+.white13{
+    background-color: white;
+    width: 250px;
+    height: 180px;
+    margin: 10px;
+    top: 400px;
+    left: 910px;
+    position: absolute;
+}
+
+
+.black {
+    background-color: black;
+    width: 190px;
+    height: 190px;
+    margin-top: 10px;
+}
