@@ -1,21 +1,49 @@
+require('dotenv').config();
 const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const FormData = require("form-data");
 
-const app = express();
 
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+var key=process.env.DB_KEY;
+app.use(express.static("public"));
 // https get
 app.get("/", (req, res) => {
-  var url = "http://placekitten.com/g/300/300";
-  https.get(url, (response) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+app.post("/", (req, res) => {
+  const cityName=req.body.cityName;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=metric`;
+  https.get(url, (response)=>{
     console.log(response.statusCode);
-    response.on("data", (data) => {
-      res.write(data);
-      res.send();
+    var responseContent="";
+    response.on("data", (data)=>{
+      responseContent+=data;
+    }).on("end",()=>{
+      /*res.write(responseContent);
+      res.send();*/
+      const weatherData = JSON.parse(responseContent); 
+      const temp = weatherData.main.temp; 
+      const description = weatherData.weather[0].description; 
+      const icon = weatherData.weather[0].icon; 
+      const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+      res.send(`
+          <h1>The temperature in ${cityName} is ${temp}°C</h1>
+          <p>The weather is currently: ${description}</p>
+          <img src="${iconUrl}" alt="Weather icon">
+          <br><a href="/">Back to Home</a>
+      `);
+    }).on("error",(e)=>{
+      res.send("Error: ${e.message}");
     });
-  });
+  }); 
 });
 
 // https post
