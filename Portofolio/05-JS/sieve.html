@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Exercise - Sieve of Erathostenes</title>
+    <script src="js/sieve_eratosthenes.js" defer></script>
 </head>
 
 <body>
@@ -20,6 +21,19 @@
         <br />
         <strong>Primes: </strong><span id="primes"></span>
     </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            var input = document.getElementById('num').value;
+            var number = parseInt(input, 10);
+            if (!isNaN(number) && number > 1) {
+                var primes = sieve(number);
+                document.getElementById('primes').textContent = primes.join(', ');
+            } else {
+                document.getElementById('primes').textContent = 'Please enter a valid number greater than 1.';
+            }
+        });
+    </script>
 </body>
 
 </html>

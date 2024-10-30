@@ -45,14 +45,32 @@ function flatlander(width, height, x, y, isHappy) {
     // TODO: Update the x, y position using the this.speedX and this.speedY
     // values of the object. Make sure that when they reach an edge, they
     // bounce back.
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x <= 0 || this.x + this.width >= canvasWidth) {
+      this.speedX = -this.speedX;
+    }
+    if (this.y <= 0 || this.y + this.height >= canvasHeight) {
+      this.speedY = -this.speedY;
+    }
   };
   this.moreHappy = function () {
     // TODO: increase the happyPoints value and check if the isHappy flag
     // needs to be updated along with the image being displayed
+    this.happyPoints++;
+    if (this.happyPoints > 0 && !this.isHappy) {
+      this.isHappy = true;
+      this.image.src = happySrc;
+    }
   };
   this.lessHappy = function () {
     // TODO: decrease the happyPoints value and check if the isHappy flag
     // needs to be updated along with the image being displayed
+    this.happyPoints--;
+    if (this.happyPoints <= 0 && this.isHappy) {
+      this.isHappy = false;
+      this.image.src = sadSrc;
+    }
   };
   this.checkSurroundings = function (other) {
     var x = Math.pow(this.x - other.x, 2);
@@ -60,22 +78,28 @@ function flatlander(width, height, x, y, isHappy) {
     return Math.sqrt(x + y);
   };
 }
+  
 
 function startGame() {
   // TODO: make sure to get all the values from the screen
-  var n = 1;
-  var m = 1;
+  var n = parseInt(document.getElementById("num").value); 
+  var m = parseInt(document.getElementById("sad").value);
   if (parseInt(m) > parseInt(n)) {
     window.alert("Can not have more sad than individuals.");
     return;
   }
   var sad = 0;
+  myGamePiece = [];
+  myGameArea.timer = 0;
+  myGameArea.running = true;
+
   for (i = 0; i < n; i++) {
     //var rand = Math.random() * 100;
     // 30% of chance of getting an angry subject
     var nX = (Math.random() * 10000) % myGameArea.canvas.width;
     var nY = (Math.random() * 10000) % myGameArea.canvas.height;
     var gamePiece = new flatlander(30, 30, nX, nY, ++sad > m);
+    if (!gamePiece.isHappy) sad++;
     myGamePiece.push(gamePiece);
   }
   myGameArea.start();

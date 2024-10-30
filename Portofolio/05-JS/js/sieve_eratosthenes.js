@@ -8,12 +8,25 @@
 var sieve = function (n) {
   "use strict";
 
-  var array = [],
+  var array = new Array(n).fill(true),
     primes = [],
     i,
     j;
+  
+  array[0] = array[1] = false;
+  for (i = 2; i * i < n; i++) {
+    if (array[i]) { 
+      for (j = i * i; j < n; j += i) {
+        array[j] = false; 
+      }
+    }
+  }
 
-  // TODO: Implement the sieve of eratosthenes algorithm to find all the prime numbers under the given number.
+  for (i = 2; i < n; i++) {
+    if (array[i]) {
+      primes.push(i);
+    }
+  }
 
   return primes;
 };
