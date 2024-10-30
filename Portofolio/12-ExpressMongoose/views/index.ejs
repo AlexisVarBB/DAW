@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MongoDB - F1 Test</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <img src="/images/StarLion.png" alt="lion brewery" />
+    <h1>Welcome to my F1 DB</h1>
+
+    <form action="/driver" method="post">
+        <% if (driverToEdit) { %>
+            <input type="hidden" name="_id" value="<%= driverToEdit._id %>" />
+        <% } %>
+        <h2>Driver Information</h2>
+        <input type="text" name="num" placeholder="Number" value="<%= driverToEdit ? driverToEdit.num : '' %>" />
+        <input type="text" name="code" placeholder="Code" value="<%= driverToEdit ? driverToEdit.code : '' %>" />
+        <input type="text" name="name" placeholder="Name" value="<%= driverToEdit ? driverToEdit.forename : '' %>" />
+        <input type="text" name="lname" placeholder="Last Name" value="<%= driverToEdit ? driverToEdit.surname : '' %>" />
+        <br />
+        <label for="dob">Date of Birth: </label>
+        <input type="date" name="dob" value="<%= driverToEdit ? driverToEdit.dob.toISOString().substring(0, 10) : '' %>" />
+        <label for="url">Biography URL: </label>
+        <input type="url" name="url" value="<%= driverToEdit ? driverToEdit.url : '' %>" />
+        <br />
+        <label for="nation">Nationality: </label>
+        <select name="nation">
+            <% nationalities.forEach(function(nation) { %>
+                <option value="<%= nation %>" <%= driverToEdit && driverToEdit.nationality === nation ? 'selected' : '' %>><%= nation %></option>
+            <% }) %>
+        </select>
+        <label for="team">Team: </label>
+        <select name="team">
+            <% teams.forEach(function(team) { %>
+                <option value="<%= team.name %>" <%= driverToEdit && driverToEdit.team.name === team.name ? 'selected' : '' %>><%= team.name %></option>
+            <% }) %>
+        </select>
+        <p><input type="submit" value="<%= driverToEdit ? 'Update' : 'Add' %> Driver" /></p>
+    </form>
+
+    <button onclick="toggleView()"><%= viewBy === 'drivers' ? 'View by Teams' : 'View by Drivers' %></button>
+
+    <% if (viewBy === 'drivers') { %>
+        <h2>Driver List</h2>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Nationality</th>
+                <th>Team</th>
+                <th>Actions</th>
+            </tr>
+            <% drivers.forEach(function(driver) { %>
+                <tr>
+                    <td><%= driver.num %></td>
+                    <td><%= driver.code %></td>
+                    <td><%= driver.forename %></td>
+                    <td><%= driver.surname %></td>
+                    <td><%= driver.dob.toISOString().substring(0, 10) %></td>
+                    <td><%= driver.nationality %></td>
+                    <td><%= driver.team.name %></td>
+                    <td>
+                        <a href="/edit/<%= driver._id %>">Edit</a> |
+                        <a href="/delete/<%= driver._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } else { %>
+        <h2>Team List</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Nationality</th>
+            </tr>
+            <% teams.forEach(function(team) { %>
+                <tr>
+                    <td><%= team.name %></td>
+                    <td><%= team.nationality %></td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } %>
+
+    <script>
+        function toggleView() {
+            const currentView = '<%= viewBy %>';
+            const newView = currentView === 'drivers' ? 'teams' : 'drivers';
+            window.location.href = `/toggleView?viewBy=${newView}`;
+        }
+    </script>
+</body>
+</html>
