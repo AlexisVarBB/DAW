@@ -1,0 +1,17 @@
+<%- include("partials/header"); -%>
+<h3>Hello <%=userName%></h3>
+
+<h3>Add a new post</h3>
+<form action="/add" method="POST">
+    <input type="text" name="title" placeholder="Title"/>
+    <input type="text" name="content" placeholder="Content"/>
+    <button type="submit" name="submit" > Add post</button>
+</form>
+<h3>Posts</h3>
+<% for(let i = 0; i < postsTitle.length; i++) { %>
+  <h4><%= postsTitle[i] %></h4>
+  <p><%= postsContent[i].substring(0, 100) %>...</p>
+  <a href="/post/<%= i %>">Read More</a>
+<% } %>
+
+<%- include("partials/footer"); -%>
