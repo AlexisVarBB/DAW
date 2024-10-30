@@ -1,0 +1,21 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "None",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^20.18.0",
+    "star-wars-quotes": "^1.0.2",
+    "superheroes": "^4.0.0",
+    "supervillains": "^4.0.0"
+  }
+}
