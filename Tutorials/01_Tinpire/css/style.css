@@ -1,19 +1,41 @@
+/* Gradient Background */
 .gradient-background {
-  background: linear-gradient(300deg, #feffff, #070100, #ff4c68);
-  background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
+  background: linear-gradient(45deg, #3C9F8F, #3065F8);
+  color: white;
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
+/* Title Section */
+.iphone-image {
+  max-width: 200px;
+  position: relative;
+}
 
-  50% {
-    background-position: 100% 50%;
-  }
+/* Features Section */
+.feature-box {
+  background: white;
+  border-radius: 20px;
+}
 
-  100% {
-    background-position: 0% 50%;
-  }
+.feature-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Testimonial Section */
+#testimonial img {
+  border: 3px solid #3065F8;
+}
+
+/* Pricing Section */
+.card {
+  background-color: #f6f6fe;
+}
+
+.card h3 {
+  color: #3065F8;
+}
+
+/* Footer */
+#footer {
+  margin-bottom: 0;
 }

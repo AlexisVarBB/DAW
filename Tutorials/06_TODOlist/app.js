@@ -9,29 +9,44 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const items = ["Buy Food", "Cook Food", "Eat Food"];
-const workItems = [];
+const database = {
+  default: ["Buy Food", "Cook Food", "Eat Food"],
+  work: []
+};
 
 app.get("/", (req, res) => {
   const day = date.getDate();
-
-  res.render("list", { listTitle: day, newListItems: items });
+  res.render("list", { listTitle: day, newListItems: database.default });
 });
 
 app.post("/", (req, res) => {
   const item = req.body.newItem;
+  const listName = req.body.list;
 
-  if (req.body.list === "Work") {
-    workItems.push(item);
+  if (listName === "Work") {
+    database.work.push(item);
     res.redirect("/work");
   } else {
-    items.push(item);
+    database.default.push(item);
     res.redirect("/");
   }
 });
 
 app.get("/work", (req, res) => {
-  res.render("list", { listTitle: "Work List", newListItems: workItems });
+  res.render("list", { listTitle: "Work List", newListItems: database.work });
+});
+
+app.post("/delete", (req, res) => {
+  const listName = req.body.listName;
+  const itemIndex = parseInt(req.body.itemIndex, 10);
+
+  if (listName === "Work") {
+    database.work.splice(itemIndex, 1);
+    res.redirect("/work");
+  } else {
+    database.default.splice(itemIndex, 1);
+    res.redirect("/");
+  }
 });
 
 app.get("/about", (req, res) => {
